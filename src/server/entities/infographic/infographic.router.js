@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const debug = require('debug')('app:idea.router');
+const debug = require('debug')('app:infographic.router');
 
 function createRouter() {
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const debug = require('debug')('app:video.router');
+const debug = require('debug')('app:link.router');
 
 function createRouter() {
 
