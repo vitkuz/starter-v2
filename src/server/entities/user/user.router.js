@@ -21,7 +21,6 @@ const userUpdateController = require('./controllers/user.update.controller');
 const userDeleteController = require('./controllers/user.delete.controller');
 
 function createRouter() {
-
   router.get('/user/login', userLoginGetController);
   router.post('/user/login', userLoginPostController);
 
