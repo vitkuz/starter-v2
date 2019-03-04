@@ -1,0 +1,22 @@
+version: '3'
+services:
+#  hf_nginx:
+#    image: "hf_ng"
+#    ports:
+#     - "80:80"
+  hf_node:
+    image: "vitkuz:latest"
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DEBUG=app,app:*
+    env_file:
+      - .env
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+  mongo:
+    image: "mongo"
