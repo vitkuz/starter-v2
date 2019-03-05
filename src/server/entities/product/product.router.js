@@ -6,11 +6,13 @@ const debug = require('debug')('app:product.router');
 
 const productReadGetController = require('./controllers/product.read.get.controller');
 const productCreateGetController = require('./controllers/product.create.get.controller');
+const productUpdateGetController = require('./controllers/product.update.get.controller');
 
 function createRouter() {
 
   router.get('/product/:productId', productReadGetController);
   router.get('/user/create/product', productCreateGetController);
+  router.get('/user/update/product/:productId', productUpdateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

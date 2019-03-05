@@ -12,7 +12,7 @@ function createRouter() {
 
   router.get('/article/:articleId', articleReadGetController);
   router.get('/user/create/article', articleCreateGetController);
-  router.get('/user/edit/article/:articleId', articleUpdateGetController);
+  router.get('/user/update/article/:articleId', articleUpdateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

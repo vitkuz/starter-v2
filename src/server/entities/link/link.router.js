@@ -6,11 +6,13 @@ const debug = require('debug')('app:link.router');
 
 const linkReadGetController = require('./controllers/link.read.get.controller');
 const linkCreateGetController = require('./controllers/link.create.get.controller');
+const linkUpdateGetController = require('./controllers/link.update.get.controller');
 
 function createRouter() {
 
   router.get('/link/:linkId', linkReadGetController);
   router.get('/user/create/link', linkCreateGetController);
+  router.get('/user/update/link/:linkId', linkUpdateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 
