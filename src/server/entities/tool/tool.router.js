@@ -10,7 +10,7 @@ const toolCreateGetController = require('./controllers/tool.create.get.controlle
 function createRouter() {
 
   router.get('/tool/:toolId', toolReadGetController);
-  router.get('/user/add/tool', toolCreateGetController);
+  router.get('/user/create/tool', toolCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

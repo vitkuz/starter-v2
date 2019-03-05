@@ -10,7 +10,7 @@ const ideaCreateGetController = require('./controllers/idea.create.get.controlle
 function createRouter() {
 
   router.get('/idea/:ideaId', ideaReadGetController);
-  router.get('/user/add/idea', ideaCreateGetController);
+  router.get('/user/create/idea', ideaCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

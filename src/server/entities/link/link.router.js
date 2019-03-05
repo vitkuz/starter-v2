@@ -10,7 +10,7 @@ const linkCreateGetController = require('./controllers/link.create.get.controlle
 function createRouter() {
 
   router.get('/link/:linkId', linkReadGetController);
-  router.get('/user/add/link', linkCreateGetController);
+  router.get('/user/create/link', linkCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

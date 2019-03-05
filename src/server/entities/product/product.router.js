@@ -10,7 +10,7 @@ const productCreateGetController = require('./controllers/product.create.get.con
 function createRouter() {
 
   router.get('/product/:productId', productReadGetController);
-  router.get('/user/add/product', productCreateGetController);
+  router.get('/user/create/product', productCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

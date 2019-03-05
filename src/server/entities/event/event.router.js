@@ -10,7 +10,7 @@ const eventCreateGetController = require('./controllers/event.create.get.control
 function createRouter() {
 
   router.get('/event/:eventId', eventReadGetController);
-  router.get('/user/add/event', eventCreateGetController);
+  router.get('/user/create/event', eventCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

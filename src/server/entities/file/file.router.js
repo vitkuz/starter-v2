@@ -10,7 +10,7 @@ const fileCreateGetController = require('./controllers/file.create.get.controlle
 function createRouter() {
 
   router.get('/file/:fileId', fileReadGetController);
-  router.get('/user/add/file', fileCreateGetController);
+  router.get('/user/create/file', fileCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

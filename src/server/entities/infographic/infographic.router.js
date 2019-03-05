@@ -10,7 +10,7 @@ const infographicCreateGetController = require('./controllers/infographic.create
 function createRouter() {
 
   router.get('/infographic/:infographicId', infographicReadGetController);
-  router.get('/user/add/infographic', infographicCreateGetController);
+  router.get('/user/create/infographic', infographicCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

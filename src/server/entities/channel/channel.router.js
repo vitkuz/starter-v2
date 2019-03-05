@@ -10,7 +10,7 @@ const channelCreateGetController = require('./controllers/channel.create.get.con
 function createRouter() {
 
   router.get('/channel/:channelId', channelReadGetController);
-  router.get('/user/add/channel', channelCreateGetController);
+  router.get('/user/create/channel', channelCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

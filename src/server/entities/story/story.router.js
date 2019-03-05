@@ -10,7 +10,7 @@ const storyCreateGetController = require('./controllers/story.create.get.control
 function createRouter() {
 
   router.get('/story/:storyId', storyReadGetController);
-  router.get('/user/add/story', storyCreateGetController);
+  router.get('/user/create/story', storyCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

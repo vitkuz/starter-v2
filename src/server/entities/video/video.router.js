@@ -10,7 +10,7 @@ const videoCreateGetController = require('./controllers/video.create.get.control
 function createRouter() {
 
   router.get('/video/:videoId', videoReadGetController);
-  router.get('/user/add/video', videoCreateGetController);
+  router.get('/user/create/video', videoCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

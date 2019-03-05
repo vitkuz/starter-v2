@@ -10,7 +10,7 @@ const bookCreateGetController = require('./controllers/book.create.get.controlle
 function createRouter() {
 
   router.get('/book/:bookId', bookReadGetController);
-  router.get('/user/add/book', bookCreateGetController);
+  router.get('/user/create/book', bookCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

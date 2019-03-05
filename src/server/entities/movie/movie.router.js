@@ -10,7 +10,7 @@ const movieCreateGetController = require('./controllers/movie.create.get.control
 function createRouter() {
 
   router.get('/movie/:movieId', movieReadGetController);
-  router.get('/user/add/movie', movieCreateGetController);
+  router.get('/user/create/movie', movieCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 

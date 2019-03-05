@@ -10,7 +10,7 @@ const summaryCreateGetController = require('./controllers/summary.create.get.con
 function createRouter() {
 
   router.get('/summary/:summaryId', summaryReadGetController);
-  router.get('/user/add/summary', summaryCreateGetController);
+  router.get('/user/create/summary', summaryCreateGetController);
 
   if (CONFIG.NODE_ENV === 'development') {
 
