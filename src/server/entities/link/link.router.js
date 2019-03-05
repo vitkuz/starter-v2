@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const CONFIG = require('../../setup/config');
 
 const debug = require('debug')('app:link.router');
 
@@ -11,11 +12,11 @@ function createRouter() {
   router.get('/link/:linkId', linkReadGetController);
   router.get('/user/add/link', linkCreateGetController);
 
-  if (process.env.NODE_ENV === 'development') {
+  if (CONFIG.NODE_ENV === 'development') {
 
   }
 
-  if (process.env.NODE_ENV === 'production') {
+  if (CONFIG.NODE_ENV === 'production') {
 
   }
 

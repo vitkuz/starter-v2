@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const CONFIG = require('../../setup/config');
 
 const debug = require('debug')('app:quote.router');
 
 function createRouter() {
 
 
-  if (process.env.NODE_ENV === 'development') {
+  if (CONFIG.NODE_ENV === 'development') {
 
   }
 
-  if (process.env.NODE_ENV === 'production') {
+  if (CONFIG.NODE_ENV === 'production') {
 
   }
 

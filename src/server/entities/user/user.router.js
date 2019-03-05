@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router();const CONFIG = require('../../setup/config');
 
 const debug = require('debug')('app:user.router');
 
@@ -43,11 +43,11 @@ function createRouter() {
   router.put('/user', userUpdateController);
   router.delete('/user', userDeleteController);
 
-  if (process.env.NODE_ENV === 'development') {
+  if (CONFIG.NODE_ENV === 'development') {
 
   }
 
-  if (process.env.NODE_ENV === 'production') {
+  if (CONFIG.NODE_ENV === 'production') {
 
   }
 
