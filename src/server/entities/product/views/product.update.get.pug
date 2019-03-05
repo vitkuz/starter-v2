@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Product update page
+        hr
+        form.form-create-product
+          div.mb-3
+            label(for='productTitle') Product title
+            input#productTitle.form-control(type='text', placeholder='Product title')
+          div.mb-3
+            label(for='productCategory') Category
+            input#productCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save
