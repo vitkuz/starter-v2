@@ -3,15 +3,13 @@ const router = express.Router();
 
 const debug = require('debug')('app:article.router');
 
-require('article.create.get.controller');
-require('article.create.post.controller');
-require('article.delete.delete.controller');
-require('article.read.get.controller');
-require('article.update.get.controller');
-require('article.update.put.controller');
+const articleReadGetController = require('./controllers/article.read.get.controller');
+const articleCreateGetController = require('./controllers/article.create.get.controller');
 
 function createRouter() {
 
+  router.get('/article/:articleId', articleReadGetController);
+  router.get('/user/add/article', articleCreateGetController);
 
   if (process.env.NODE_ENV === 'development') {
 

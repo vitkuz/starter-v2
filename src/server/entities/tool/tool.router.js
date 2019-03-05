@@ -3,8 +3,13 @@ const router = express.Router();
 
 const debug = require('debug')('app:link.router');
 
+const toolReadGetController = require('./controllers/tool.read.get.controller');
+const toolCreateGetController = require('./controllers/tool.create.get.controller');
+
 function createRouter() {
 
+  router.get('/tool/:toolId', toolReadGetController);
+  router.get('/user/add/tool', toolCreateGetController);
 
   if (process.env.NODE_ENV === 'development') {
 
