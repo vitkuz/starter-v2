@@ -1,1 +1,18 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1  Channel create page
+        hr
+        form.form-create-channel
+          div.mb-3
+            label(for='channelTitle') Channel title
+            input#channelTitle.form-control(type='text', placeholder='Channel title')
+          div.mb-3
+            label(for='channelCategory') Category
+            input#channelCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save
+

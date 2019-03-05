@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 video create page
+        hr
+        form.form-create-video
+          div.mb-3
+            label(for='videoTitle') video title
+            input#videoTitle.form-control(type='text', placeholder='video title')
+          div.mb-3
+            label(for='videoCategory') Category
+            input#videoCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save

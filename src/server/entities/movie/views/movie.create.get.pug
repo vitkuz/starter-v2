@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Movie create page
+        hr
+        form.form-create-movie
+          div.mb-3
+            label(for='movieTitle') movie title
+            input#movieTitle.form-control(type='text', placeholder='Movie title')
+          div.mb-3
+            label(for='movieCategory') Category
+            input#movieCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save

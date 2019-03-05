@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Idea create page
+        hr
+        form.form-create-file
+          div.mb-3
+            label(for='fileTitle') File title
+            input#fileTitle.form-control(type='text', placeholder='File title')
+          div.mb-3
+            label(for='fileCategory') Category
+            input#fileCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save

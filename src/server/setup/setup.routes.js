@@ -19,6 +19,7 @@ const quoteRouter = require('../entities/quote/quote.router');
 const storyRouter = require('../entities/story/story.router');
 const summaryRouter = require('../entities/summary/summary.router');
 const toolRouter = require('../entities/tool/tool.router');
+const videoRouter = require('../entities/video/video.router');
 
 function setupRoutes(app) {
   app.use(userRouter());
@@ -42,6 +43,7 @@ function setupRoutes(app) {
   app.use(storyRouter());
   app.use(summaryRouter());
   app.use(toolRouter());
+  app.use(videoRouter());
 }
 
 module.exports = setupRoutes;

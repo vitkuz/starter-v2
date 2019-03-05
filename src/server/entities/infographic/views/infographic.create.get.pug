@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 infographic create page
+        hr
+        form.form-create-infographic
+          div.mb-3
+            label(for='infographicTitle') infographic title
+            input#infographicTitle.form-control(type='text', placeholder='infographic title')
+          div.mb-3
+            label(for='infographicCategory') Category
+            input#infographicCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save

@@ -12,8 +12,11 @@ function setupConfig(app) {
 
   const viewsPaths = [
     path.join(__dirname, '..', 'views'),
+
     path.join(__dirname, '..', 'pages', 'views'),
-    path.join(__dirname, '..', 'taxonomies', 'category'),
+
+    path.join(__dirname, '..', 'taxonomies', 'category', 'views'),
+
     path.join(__dirname, '..', 'entities', 'user', 'views'),
     path.join(__dirname, '..', 'entities', 'article', 'views'),
     path.join(__dirname, '..', 'entities', 'book', 'views'),
@@ -31,7 +34,6 @@ function setupConfig(app) {
     path.join(__dirname, '..', 'entities', 'summary', 'views'),
     path.join(__dirname, '..', 'entities', 'tool', 'views'),
     path.join(__dirname, '..', 'entities', 'video', 'views'),
-    path.join(__dirname, '..', 'pages', 'views'),
   ];
 
   debug(staticPath, viewsPaths);

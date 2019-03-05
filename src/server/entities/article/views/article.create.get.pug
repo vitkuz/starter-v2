@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1  Article create page
+        hr
+        form.form-create-article
+          div.mb-3
+            label(for='articleTitle') Article title
+            input#articleTitle.form-control(type='text', placeholder='Article title')
+          div.mb-3
+            label(for='articleCategory') Category
+            input#articleCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save
