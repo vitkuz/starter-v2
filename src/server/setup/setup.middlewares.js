@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 // const expressValidator = require('express-validator');
 
+const development = require('../middlewares/development');
+
 function setupConfig(app) {
 
   if (process.env.NODE_ENV === 'development') {
@@ -38,6 +40,8 @@ function setupConfig(app) {
   }));
 
   app.use(morgan('tiny'));
+
+  app.use(development());
 
 }
 

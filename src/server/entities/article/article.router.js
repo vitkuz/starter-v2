@@ -3,12 +3,12 @@ const router = express.Router();
 
 const debug = require('debug')('app:article.router');
 
-require('article.create.get.controller');
-require('article.create.post.controller');
-require('article.delete.delete.controller');
-require('article.read.get.controller');
-require('article.update.get.controller');
-require('article.update.put.controller');
+require('./controllers/article.create.get.controller');
+require('./controllers/article.create.post.controller');
+require('./controllers/article.delete.delete.controller');
+require('./controllers/article.read.get.controller');
+require('./controllers/article.update.get.controller');
+require('./controllers/article.update.put.controller');
 
 function createRouter() {
 
