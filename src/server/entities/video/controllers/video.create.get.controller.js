@@ -1,5 +1,7 @@
 const debug = require('debug')('app:video.create.get');
 
+const pageModel = require('../../../builders/page.builder');
+
 module.exports = async (req, res) => {
   try {
     // const pageModel = await builder();

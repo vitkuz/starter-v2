@@ -18,10 +18,6 @@ setupMiddlewares(app);
 // setupPassport(app);
 setupRoutes(app);
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
-
 app.use((req, res) => {
   return res.status(404).send(`page not found`);
 });
