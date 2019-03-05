@@ -2,6 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const debug = require('debug')('app:server');
 
+const CONFIG = require('./setup/config');
+
 const setupConfig = require('./setup/setup.config');
 const setupMiddlewares = require('./setup/setup.middlewares');
 // const setupPassport = require('./setup/setup.passport');
@@ -25,7 +27,7 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res) => {
-  if (process.env.NODE_ENV === 'production') {
+  if (CONFIG.NODE_ENV === 'production') {
     return res.status(500).send('something wen\'t wrong');
   }
   return res.status(500).send(`hey!! we caugth the error 👍👍, ${err.stack} `);
@@ -40,8 +42,6 @@ process
     process.exit(1);
   });
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  debug(`Running on ${PORT}`);
+app.listen(CONFIG.PORT, () => {
+  debug(`Running on ${CONFIG.PORT}`);
 });

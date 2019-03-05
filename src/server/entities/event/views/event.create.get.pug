@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Event create page
+        hr
+        form.form-create-Event
+          div.mb-3
+            label(for='EventTitle') Event title
+            input#eventTitle.form-control(type='text', placeholder='Event title')
+          div.mb-3
+            label(for='EventCategory') Category
+            input#eventCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save

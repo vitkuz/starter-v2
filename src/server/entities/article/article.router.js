@@ -1,23 +1,24 @@
 const express = require('express');
 const router = express.Router();
+const CONFIG = require('../../setup/config');
 
 const debug = require('debug')('app:article.router');
 
-require('./controllers/article.create.get.controller');
-require('./controllers/article.create.post.controller');
-require('./controllers/article.delete.delete.controller');
-require('./controllers/article.read.get.controller');
-require('./controllers/article.update.get.controller');
-require('./controllers/article.update.put.controller');
+const articleReadGetController = require('./controllers/article.read.get.controller');
+const articleCreateGetController = require('./controllers/article.create.get.controller');
+const articleUpdateGetController = require('./controllers/article.update.get.controller');
 
 function createRouter() {
 
+  router.get('/article/:articleId', articleReadGetController);
+  router.get('/user/create/article', articleCreateGetController);
+  router.get('/user/update/article/:articleId', articleUpdateGetController);
 
-  if (process.env.NODE_ENV === 'development') {
+  if (CONFIG.NODE_ENV === 'development') {
 
   }
 
-  if (process.env.NODE_ENV === 'production') {
+  if (CONFIG.NODE_ENV === 'production') {
 
   }
 

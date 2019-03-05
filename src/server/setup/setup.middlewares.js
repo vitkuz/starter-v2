@@ -7,17 +7,17 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 // const expressValidator = require('express-validator');
 
-const development = require('../middlewares/development');
+const CONFIG = require('./config');
 
 function setupConfig(app) {
 
-  if (process.env.NODE_ENV === 'development') {
+  if (CONFIG.NODE_ENV === 'development') {
     app.use(monitor());
   }
 
   app.use(helmet()); // protect express app
 
-  if (process.env.NODE_ENV === 'production') {
+  if (CONFIG.NODE_ENV === 'production') {
     app.use(compression({ level: 9 })); // compress responses
   }
 
@@ -26,7 +26,7 @@ function setupConfig(app) {
 
   app.use(cookieParser());
   app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: CONFIG.SESSION_SECRET,
     saveUninitialized: true,
     resave: false,
     name: 'id',
@@ -40,8 +40,6 @@ function setupConfig(app) {
   }));
 
   app.use(morgan('tiny'));
-
-  app.use(development());
 
 }
 

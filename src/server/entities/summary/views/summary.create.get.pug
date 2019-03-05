@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Summary create page
+        hr
+        form.form-create-summary
+          div.mb-3
+            label(for='summaryTitle') Summary title
+            input#summaryTitle.form-control(type='text', placeholder='Summary title')
+          div.mb-3
+            label(for='summaryCategory') Category
+            input#summaryCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save

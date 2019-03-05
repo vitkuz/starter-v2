@@ -1,0 +1,17 @@
+extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Link update page
+        hr
+        form.form-create-link
+          div.mb-3
+            label(for='linkTitle') Link title
+            input#linkTitle.form-control(type='text', placeholder='Link title')
+          div.mb-3
+            label(for='linkCategory') Category
+            input#linkCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save

@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Tool update page
+        hr
+        form.form-create-tool
+          div.mb-3
+            label(for='toolTitle') Tool title
+            input#toolTitle.form-control(type='text', placeholder='Tool title')
+          div.mb-3
+            label(for='toolCategory') Category
+            input#toolCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save

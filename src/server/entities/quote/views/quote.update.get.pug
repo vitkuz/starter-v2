@@ -1,1 +1,17 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Quote update page
+        hr
+        form.form-create-quote
+          div.mb-3
+            label(for='quoteTitle') Quote title
+            input#quoteTitle.form-control(type='text', placeholder='Quote title')
+          div.mb-3
+            label(for='quoteCategory') Category
+            input#quoteCategory.form-control(type='text', placeholder='Category Ref')
+          div.mb-3
+            button.btn.btn-success Save
