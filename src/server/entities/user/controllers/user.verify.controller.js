@@ -11,9 +11,9 @@ module.exports = async (req, res) => {
     // debug(pageModel.content);
 
     if (verificationKey) {
-      res.render('user.verify.success.pug', {});
+      res.render('user.verify.success.pug', pageModel);
     } else {
-      res.render('user.verify.fail.pug', {});
+      res.render('user.verify.fail.pug', pageModel);
     }
   } catch (e) {
     debug(e);

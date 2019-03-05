@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
       params: req.params,
       body: req.body,
     });
-    // res.render('user.edit.info.pug', {});
+    // res.render('user.edit.info.pug', pageModel);
   } catch (e) {
     debug(e);
   }

@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     // const pageModel = await builder();
     // debug(pageModel);
     // debug(pageModel.content);
-    res.render('link.update.get.pug', {});
+    res.render('link.update.get.pug', pageModel);
   } catch (e) {
     debug(e);
   }

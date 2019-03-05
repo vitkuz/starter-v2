@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     // const pageModel = await builder();
     // debug(pageModel);
     // debug(pageModel.content);
-    res.render('user.password.pug', {});
+    res.render('user.password.pug', pageModel);
   } catch (e) {
     debug(e);
   }

@@ -16,9 +16,9 @@ module.exports = async (req, res) => {
 
       req.session.user = user;
 
-      res.render('user.register.success.pug', {});
+      res.render('user.register.success.pug', pageModel);
     } else {
-      res.render('user.register.pug', {});
+      res.render('user.register.pug', pageModel);
     }
   } catch (e) {
     debug(e);

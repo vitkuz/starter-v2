@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
   try {
 
     if (req.session.user) {
-      res.render('user.profile.pug', {});
+      res.render('user.profile.pug', pageModel);
     } else {
       res.redirect('/user/login')
     }
