@@ -1,3 +1,7 @@
+const _ = require('lodash');
+
+const keys = ['articles','books','channels','courses','events','files','ideas','infographics','links','movies', 'products','quotes','stories','summaries','tools','users','videos'];
+
 const { readMenuArr,
   createMenuArr,
   updateMenuArr,
@@ -16,6 +20,15 @@ const defaultPage = {
   categoriesMenu
 };
 
+function generateArticleMenu(path) {
+  return keys.map((key) => {
+    return {
+      text: key,
+      href: path+'/'+key
+    }
+  })
+}
+
 class PageModel {
   constructor(page) {
     Object.assign(this, defaultPage, page);
@@ -27,8 +40,34 @@ class PageModel {
 }
 
 class PageModelBuilder {
-  constructor(name){
-    this.name = name;
+  constructor(req){
+    this.content = {};
+    this.req = _.pick(req, ['params', 'body', 'query', 'session', 'cookies', 'signedCookies', 'path']);
+  }
+
+  withArticle(article) {
+    this.content.article = article;
+    return this;
+  }
+
+  withBooks(books) {
+    this.content.books = books;
+    return this;
+  }
+
+  withChannels(channels) {
+    this.content.channels = channels;
+    return this;
+  }
+
+  withContent(content) {
+    Object.assign(this.content, content)
+    return this;
+  }
+
+  withArticleMenu() {
+    this.articleMenu = generateArticleMenu(this.req.path);
+    return this;
   }
 
   build() {
