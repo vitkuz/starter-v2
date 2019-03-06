@@ -1,4 +1,4 @@
-const generate = require('../mocks/generate');
+const generate = require('../data/mocks/generate');
 const CONFIG = require('../setup/config');
 
 const getContent = {

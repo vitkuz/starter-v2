@@ -1,1 +1,43 @@
 extends ../../../views/root
+
+block content
+  .container
+    .row
+      .col-md-12
+        header.article__header
+          h1= content.article.title
+          p.lead= content.article.subtitle
+          p.text-muted= content.article.createdAt
+          p.text-muted= content.article.updatedAt
+        hr
+        .menu
+          each val in articleMenu
+            a.p-2.text-muted(href=val.href)= val.text
+        hr
+        .div
+          | #{content.article.description}
+        .div.mb-3
+          h3 Books
+          hr
+          each book in content.books
+            h5= book.title
+        .div.mb-3
+          h3 Channels
+          hr
+          each channel in content.channels
+            h5= channel.title
+        .div.mb-3
+          h3 Courses
+          hr
+          each course, index in content.courses
+            h5= (index+1) + ' ' + course.title
+        .div.mb-3
+          h3 Events
+          hr
+          each event, index in content.events
+            h5= (index + 1) + ' ' + event.title
+        .div.mb-3
+          h3 Files
+          hr
+          each file, index in content.files
+            h5= (index + 1) + ' ' + file.title
