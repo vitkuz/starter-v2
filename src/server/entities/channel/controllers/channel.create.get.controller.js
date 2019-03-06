@@ -1,6 +1,6 @@
 const debug = require('debug')('app:channel.create.get');
 
-const pageModel = require('../../../builders/page.builder');
+const PageModelBuilder = require('../../../builders/page.model.builder');
 
 module.exports = async (req, res) => {
   try {

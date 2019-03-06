@@ -1,6 +1,6 @@
 const debug = require('debug')('app:category.default.get.controller');
 
-const pageModel = require('../../../builders/page.builder');
+const pageModelBuilder = require('../../../builders/page.model.builder');
 
 module.exports = async (req, res) => {
   try {
