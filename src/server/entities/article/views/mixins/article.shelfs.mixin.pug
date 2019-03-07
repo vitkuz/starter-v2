@@ -1,0 +1,201 @@
+mixin articleBookShelf(books)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Books
+          hr
+          if books.length > 0
+            each book, index in books
+              .book-card
+                .title
+                  h5= (index+1)+' '+book.title
+                  p= book.subtitle
+                .actions
+                  a(href="#", class="btn btn-default") Like
+                  a(href="#", class="btn btn-default") Dislike
+                  a(href="#", class="btn btn-default") Save
+          else
+            p Nothing to show
+
+
+mixin articleChannelsShelf(channels)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Channels
+          hr
+          if channels.length > 0
+            each channel in channels
+              h5= channel.title
+          else
+            p Nothing to show
+
+
+mixin articleCoursesShelf(courses)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Courses
+          hr
+          if courses.length > 0
+            each course, index in courses
+              h5= (index+1) + ' ' + course.title
+          else
+            p Nothing to show
+
+
+mixin articleEventsShelf(events)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Events
+          hr
+          if events.length > 0
+            each event, index in events
+              h5= (index + 1) + ' ' + event.title
+          else
+            p Nothing to show
+
+
+mixin articleFilesShelf(files)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Files
+          hr
+          if files.length > 0
+            each file, index in files
+              h5= (index + 1) + ' ' + file.title
+          else
+            p Nothing to show
+
+
+mixin articleIdeasShelf(ideas)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Ideas
+          hr
+          if ideas.length > 0
+            each idea, index in ideas
+              h5= (index + 1) + ' ' + idea.title
+          else
+            p Nothing to show
+
+
+mixin articleInfographicsShelf(infographics)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Infographics
+          hr
+          if infographics.length > 0
+            each infographic, index in infographics
+              h5= (index + 1) + ' ' + infographic.title
+          else
+            p Nothing to show
+
+
+mixin articleMoviesShelf(movies)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Movies
+          hr
+          if movies.length > 0
+            each movie, index in movies
+              h5= (index + 1) + ' ' + movie.title
+          else
+            p Nothing to show
+
+
+mixin articleProductsShelf(products)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Products
+          hr
+          if products.length > 0
+            each product, index in products
+              h5= (index + 1) + ' ' + product.title
+          else
+            p Nothing to show
+
+
+mixin articleQuotesShelf(quotes)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Quotes
+          hr
+          if quotes.length > 0
+            each quote, index in quotes
+              h5= (index + 1) + ' ' + quote.title
+          else
+            p Nothing to show
+
+
+mixin articleStoriesShelf(stories)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Stories
+          hr
+          if stories.length > 0
+            each story, index in stories
+              h5= (index + 1) + ' ' + story.title
+          else
+            p Nothing to show
+
+
+mixin articleSummariesShelf(summaries)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Summaries
+          hr
+          if summaries.length > 0
+            each summary, index in summaries
+              h5= (index + 1) + ' ' + summary.title
+          else
+            p Nothing to show
+
+
+mixin articleToolsShelf(tools)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 Tools
+          hr
+          if tools.length > 0
+            each tool, index in tools
+              h5= (index + 1) + ' ' + tool.title
+          else
+            p Nothing to show
+
+
+mixin articleVideosShelf(videos)
+  .container
+    .row
+      .col-md-12
+        .div.mb-3
+          h3 videos
+          hr
+          if videos.length > 0
+            each video, index in videos
+              h5= (index + 1) + ' ' + video.title
+          else
+            p Nothing to show

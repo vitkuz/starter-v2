@@ -65,7 +65,7 @@ module.exports = async (req, res) => {
     // const pageModel = await builder();
     // debug(pageModel);
     // debug(pageModel.content);
-    res.render('article.read.get.pug', pageModel);
+    res.render('article.summaries.read.get.pug', pageModel);
   } catch (e) {
     debug(e);
   }

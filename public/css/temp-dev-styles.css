@@ -3,3 +3,14 @@
   margin-bottom: 12px;
   background: antiquewhite;
 }
+
+.book-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-card:hover {
+  background: aliceblue;
+}
