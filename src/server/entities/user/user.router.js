@@ -3,6 +3,8 @@ const router = express.Router();const CONFIG = require('../../setup/config');
 
 const debug = require('debug')('app:user.router');
 
+const { sanitizeBody } = require('express-validator/filter');
+
 const userController = require('./controllers/user.controller');
 const userLoginGetController = require('./controllers/user.login.get.controller');
 const userLoginPostController = require('./controllers/user.login.post.controller');
@@ -22,10 +24,16 @@ const userDeleteController = require('./controllers/user.delete.controller');
 
 function createRouter() {
   router.get('/user/login', userLoginGetController);
-  router.post('/user/login', userLoginPostController);
+  router.post('/user/login',
+    sanitizeBody(['username', 'email'])
+      .trim().escape(),
+    userLoginPostController);
 
   router.get('/user/register', userRegisterGetController);
-  router.post('/user/register', userRegisterPostController);
+  router.post('/user/register',
+    sanitizeBody(['username', 'email'])
+      .trim().escape(),
+    userRegisterPostController);
 
   router.get('/user/verify/:verificationKey', userVerificationController);
 

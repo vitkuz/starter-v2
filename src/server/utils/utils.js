@@ -11,9 +11,9 @@ function promiseAll (promises) {
           resolve(results);
         }
       }).catch((e) => {
+        console.log(e);
         results[index] = {};
         counter++;
-
         if (counter === promises.length) {
           resolve(results);
         }

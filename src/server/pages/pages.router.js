@@ -30,6 +30,8 @@ const pageToolsController = require('./controllers/page.tools.controller');
 const pageUsersController = require('./controllers/page.users.controller');
 const pageVideosController = require('./controllers/page.videos.controller');
 
+const pageCreateUser = require('./controllers/sandbox/page.user.controller');
+
 function createRouter() {
 
   router.get('/system/page404', page404Controller);
@@ -57,6 +59,8 @@ function createRouter() {
   router.get('/tools', pageToolsController);
   router.get('/users', pageUsersController);
   router.get('/videos', pageVideosController);
+
+  router.get('/sandbox/create-user', pageCreateUser);
 
   if (process.env.NODE_ENV === 'development') {
     router.get('/system/kill', pageKillController);

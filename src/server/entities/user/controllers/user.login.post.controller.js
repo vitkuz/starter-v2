@@ -15,9 +15,9 @@ module.exports = async (req, res) => {
 
       req.session.user = req.body;
 
-      res.redirect('/user/profile');
+      // res.redirect('/user/profile');
     } else {
-      res.render('user.login.pug', pageModel);
+      res.render('user.login.pug', {});
     }
   } catch (e) {
     debug(e);

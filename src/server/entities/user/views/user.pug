@@ -1,7 +1,48 @@
 extends ../../../views/root
 
 block globalNav
-  include ../../../views/partials/globalNav
+  //include ../../../views/partials/globalNav
 
 block content
-  h1 General user page
+  .container
+    .row
+      .col-md-12
+    .row
+      .col-md-6
+        h1.text-center= __('user.register.form.title', lang)
+        p.text-center= __('user.register.form.subtitle', lang)
+        form.form-register(method='post', action='/user/register')
+          .form-group
+            label.sr-only(for='inputUsername')= __('user.register.form.input.username.label', lang)
+            input#inputUsername.form-control(type='text', name='username', placeholder=__('user.register.form.input.username.placeholder', lang), required=true, autofocus=true)
+            small(id='usernameHelp', class=['form-text text-muted'])= __('user.register.form.input.username.tip', lang)
+          .form-group
+            label.sr-only(for='registerInputEmail')= __('user.register.form.input.email.label', lang)
+            input#registerInputEmail.form-control(type='email', name='email', placeholder=__('user.register.form.input.email.placeholder', lang), required=true)
+            small(id='registerEmailHelp', class=['form-text text-muted'])= __('user.register.form.input.email.tip', lang)
+          .form-group
+            label.sr-only(for='registerInputPassword')= __('user.register.form.input.password.label', lang)
+            input#registerInputPassword.form-control(type='password', name='password', placeholder=__('user.register.form.input.password.label', lang), required=true)
+            small(id='registerPasswordHelp', class=['form-text text-muted'])= __('user.register.form.input.password.tip', lang)
+          .form-group
+            label.sr-only(for='inputPassword2')= __('user.register.form.input.password2.label', lang)
+            input#inputPassword2.form-control(type='password', name='password2', placeholder=__('user.register.form.input.password2.label', lang), required=true)
+            small(id='password2Help', class=['form-text text-muted'])= __('user.register.form.input.password2.tip', lang)
+          .form-group
+            button.btn.btn-lg.btn-primary.btn-block(type='submit')= __('user.register.form.submit.text', lang)
+      .col-md-6
+        h1.text-center= __('user.login.form.title', lang)
+        p.text-center= __('user.login.form.subtitle', lang)
+        form.form-signin(method='post', action='/user/login')
+          .form-group
+            label.sr-only(for='inputEmail')= __('user.register.form.input.email.label', lang)
+            input#inputEmail.form-control(type='email', name="email", placeholder=__('user.register.form.input.email.placeholder', lang), required='', autofocus='')
+            small(id='emailHelp', class=['form-text text-muted'])= __('user.login.form.input.email.tip', lang)
+          .form-group
+            label.sr-only(for='inputPassword')= __('user.register.form.input.password.label', lang)
+            input#inputPassword.form-control(type='password', name="password", placeholder=__('user.register.form.input.password.placeholder', lang), required='')
+            small(id='passwordHelp', class=['form-text text-muted'])= __('user.login.form.input.password.tip', lang)
+          .form-group
+            button.btn.btn-lg.btn-primary.btn-block(type='submit')= __('user.login.form.submit.text', lang)
+    .row
+      .col-md-12

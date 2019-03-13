@@ -36,7 +36,7 @@ function setupConfig(app) {
     path.join(__dirname, '..', 'entities', 'video', 'views'),
   ];
 
-  debug(staticPath, viewsPaths);
+  // debug(staticPath, viewsPaths);
 
   app.set('views',viewsPaths);
   app.set('view engine', 'pug');

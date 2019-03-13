@@ -27,7 +27,7 @@ for (let entityName of entities) {
   });
 }
 
-console.log(createMenuArr);
+// console.log(createMenuArr);
 
 module.exports = {
   readMenuArr,

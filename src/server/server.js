@@ -1,15 +1,14 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const debug = require('debug')('app:server');
 
-const CONFIG = require('./setup/config');
+const debug = require('debug')('app:server');
 
 const setupConfig = require('./setup/setup.config');
 const setupMiddlewares = require('./setup/setup.middlewares');
 // const setupPassport = require('./setup/setup.passport');
 const setupRoutes = require('./setup/setup.routes');
+const setupDb = require('./setup/setup.db');
 
-dotenv.config();
+const CONFIG = require('./setup/config');
 
 const app = express();
 
@@ -17,6 +16,7 @@ setupConfig(app);
 setupMiddlewares(app);
 // setupPassport(app);
 setupRoutes(app);
+
 
 app.use((req, res) => {
   return res.status(404).send(`page not found`);
@@ -38,6 +38,26 @@ process
     process.exit(1);
   });
 
-app.listen(CONFIG.PORT, () => {
-  debug(`Running on ${CONFIG.PORT}`);
-});
+
+// TODO: add lint
+// TODO: implement https
+// TODO: implement sokets
+// TODO: implement webpack, sass
+// TODO: implement pm2
+// TODO: integration with youtube API
+// TODO: integration with google maps API
+// TODO: integration with google translate API
+// TODO: integration with wit.ai API
+
+setupDb()
+  .then(() => {
+    app.listen(CONFIG.PORT, () => {
+      debug(`Connected to the database`);
+      debug(`Running on ${CONFIG.PORT}`);
+    })
+  })
+  .catch((e) => {
+    debug(`Error connecting to tha database`, e);
+    process.exit(1);
+  });
+

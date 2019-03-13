@@ -12,7 +12,6 @@ const defaultPage = {
   lang: 'ru',
   title: 'Samaple title',
   pageTitle: 'Samaple page title',
-  bodyClasses: ['test-body-class-1', 'test-body-class-2'],
   readMenuArr,
   createMenuArr,
   updateMenuArr,
@@ -20,13 +19,31 @@ const defaultPage = {
   categoriesMenu
 };
 
-function generateArticleMenu(path) {
+function generateArticleMenu(keys, path) {
   return keys.map((key) => {
     return {
       text: key,
       href: path+'/'+key
     }
   })
+}
+
+function createBodyClasses(path) {
+  const words = path.split('/');
+  if (!words) {
+    return '';
+  }
+  const classes = [];
+  let currentPrefix = '';
+  // TODO: use reduce here
+  // TODO: use session to create additional classes
+  for(let i = 0; i < words.length; i++) {
+    if (words[i] !== '') {
+      classes.push(currentPrefix+words[i]);
+      currentPrefix = words[i]+'-';
+    }
+  }
+  return classes;
 }
 
 class PageModel {
@@ -43,6 +60,11 @@ class PageModelBuilder {
   constructor(req){
     this.content = {};
     this.req = _.pick(req, ['params', 'body', 'query', 'session', 'cookies', 'signedCookies', 'path']);
+    this.lang = this.req.session.lang;
+    this.currentYear = new Date().getFullYear();
+    this.bodyTag = {
+      classes: createBodyClasses(req.path)
+    }
   }
 
   withArticle(article) {
@@ -61,12 +83,12 @@ class PageModelBuilder {
   }
 
   withContent(content) {
-    Object.assign(this.content, content)
+    Object.assign(this.content, content);
     return this;
   }
 
-  withArticleMenu() {
-    this.articleMenu = generateArticleMenu(this.req.path);
+  withArticleMenu(keys) {
+    this.articleMenu = generateArticleMenu(keys,this.req.path);
     return this;
   }
 

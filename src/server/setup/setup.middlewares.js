@@ -7,6 +7,11 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 // const expressValidator = require('express-validator');
 
+const language = require('../middlewares/language');
+const uuid = require('../middlewares/uuid');
+const i18n = require('../middlewares/i18n');
+const sessionMiddleware = require('../middlewares/session');
+
 const CONFIG = require('./config');
 
 function setupConfig(app) {
@@ -30,6 +35,7 @@ function setupConfig(app) {
     saveUninitialized: true,
     resave: false,
     name: 'id',
+    // TODO: implement redis store
     // store: new RedisStore(),
     cookie: {
       path: '/',
@@ -40,6 +46,12 @@ function setupConfig(app) {
   }));
 
   app.use(morgan('tiny'));
+
+
+  app.use(sessionMiddleware());
+  app.use(i18n());
+  app.use(uuid());
+  app.use(language());
 
 }
 

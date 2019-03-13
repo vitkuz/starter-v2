@@ -2,7 +2,7 @@ const debug = require('debug')('app:article.read.get.controller');
 
 const PageModelBuilder = require('../../../builders/page.model.builder');
 const getContentService = require('../../../services/getContentService');
-const { promiseAll } = require('../../../../utils/utils');
+const { promiseAll } = require('../../../utils/utils');
 
 module.exports = async (req, res) => {
   try {

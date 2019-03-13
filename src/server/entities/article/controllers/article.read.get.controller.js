@@ -2,7 +2,7 @@ const debug = require('debug')('app:article.read.get.controller');
 
 const PageModelBuilder = require('../../../builders/page.model.builder');
 const getContentService = require('../../../services/getContentService');
-const { promiseAll } = require('../../../../utils/utils');
+const { promiseAll } = require('../../../utils/utils');
 
 module.exports = async (req, res) => {
   try {
@@ -44,6 +44,8 @@ module.exports = async (req, res) => {
       Object.assign(content, response);
     }
 
+    const articleMenuKeys = Object.keys(content);
+
     const {
       books,
       channels,
@@ -57,7 +59,7 @@ module.exports = async (req, res) => {
     const pageModel = new PageModelBuilder(req)
       .withArticle(article)
       .withContent(content)
-      .withArticleMenu()
+      .withArticleMenu(articleMenuKeys)
       .build();
 
     console.log(pageModel);
