@@ -4,7 +4,6 @@ const debug = require('debug')('app:server');
 
 const setupConfig = require('./setup/setup.config');
 const setupMiddlewares = require('./setup/setup.middlewares');
-// const setupPassport = require('./setup/setup.passport');
 const setupRoutes = require('./setup/setup.routes');
 const setupDb = require('./setup/setup.db');
 
@@ -14,9 +13,7 @@ const app = express();
 
 setupConfig(app);
 setupMiddlewares(app);
-// setupPassport(app);
 setupRoutes(app);
-
 
 app.use((req, res) => {
   return res.status(404).send(`page not found`);
@@ -38,16 +35,6 @@ process
     process.exit(1);
   });
 
-
-// TODO: add lint
-// TODO: implement https
-// TODO: implement sokets
-// TODO: implement webpack, sass
-// TODO: implement pm2
-// TODO: integration with youtube API
-// TODO: integration with google maps API
-// TODO: integration with google translate API
-// TODO: integration with wit.ai API
 
 setupDb()
   .then(() => {
