@@ -11,8 +11,14 @@ const userLoginPostController = require('./controllers/user.login.post.controlle
 const userRegisterGetController = require('./controllers/user.register.get.controller');
 const userRegisterPostController = require('./controllers/user.register.post.controller');
 
-const userVerificationController = require('./controllers/user.verify.controller');
-const userPasswordController = require('./controllers/user.password.controller');
+const userVerificationGetController = require('./controllers/user.verify.get.controller');
+
+const userPasswordGetController = require('./controllers/user.password.get.controller');
+const userPasswordPostController = require('./controllers/user.password.post.controller');
+
+const userPasswordResetGetController = require('./controllers/user.password.reset.get.controller');
+const userPasswordResetPostController = require('./controllers/user.password.reset.post.controller');
+
 const userProfileController = require('./controllers/user.profile.controller');
 const userEditController = require('./controllers/user.edit.controller');
 
@@ -35,10 +41,14 @@ function createRouter() {
       .trim().escape(),
     userRegisterPostController);
 
-  router.get('/user/verify/:verificationKey', userVerificationController);
+  router.get('/user/verify/:activationToken',
+    userVerificationGetController);
 
-  router.get('/user/password', userPasswordController);
-  router.post('/user/password', userPasswordController);
+  router.get('/user/password', userPasswordGetController);
+  router.post('/user/password', userPasswordPostController);
+
+  router.get('/user/password/reset/:resetPasswordToken', userPasswordResetGetController);
+  router.post('/user/password/reset', userPasswordResetPostController);
 
   router.get('/user/profile', userProfileController);
   router.get('/user/edit', userEditController);

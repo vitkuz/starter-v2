@@ -7,9 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/server/server.js",
     "dev": "set DEBUG=app,app:* & nodemon ./src/server/server.js",
-    "dev:inspect": "set DEBUG=app & nodemon --inspect ./src/server/server.js",
+    "dev:inspect": "set DEBUG=app,app:* & nodemon --inspect ./src/server/server.js",
     "lint": "set DEBUG=app & eslint ./src/server/server.js",
-    "client:build": "webpack -w --config webpack.config.development.js"
+    "build:client": "webpack -w --config webpack.config.development.js -w",
+    "pm2:web": "pm2 start ./src/server/server.js"
   },
   "author": "",
   "license": "ISC",

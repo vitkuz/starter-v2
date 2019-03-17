@@ -1,7 +1,17 @@
 extends ../../../views/root
 
 block globalNav
-  include ../../../views/partials/globalNav
+  //include ../../../views/partials/globalNav
 
 block content
-  h1 User verified successfully
+  .container
+    .row
+      .col-md-12
+        h1.text-center= __('user.verify.success.page.title', lang)
+        p.text-center= __('user.verify.success.page.subtitle', lang)
+    .row.justify-content-md-center.align-items-center
+      .col-md-6
+        .alert.alert-success= successMessage
+    .row
+      .col-md-12
+        p.mt-5.mb-3.text-muted.text-center © 2017-#{currentYear}

@@ -1,13 +1,13 @@
 module.exports = {
-  'Incorrect username or password': {
+  'incorrect.username.or.password': {
     'ru': 'Неверное имя пользователя или пароль',
     'en': 'Incorrect username or password',
   },
-  'User is not active. Please verify your email': {
+  'user.is.not.active.please.verify.your.email': {
     'ru': 'Пользователь неактивен. Проверьте свой адрес электронной почты.',
     'en': 'Пользователь неактивен. Проверьте свой адрес электронной почты.',
   },
-  'You have successfully login': {
+  'you.have.successfully.login': {
     'ru': 'Вы успешно вошли на сайт',
     'en': 'Вы успешно вошли на сайт',
   },
@@ -27,47 +27,47 @@ module.exports = {
     'ru': 'Ошибка при сохранении пользователя',
     'en': 'Ошибка при сохранении пользователя',
   },
-  'User not found' : {
+  'user.not.found' : {
     'ru': 'Пользователь не найден',
     'en': 'Пользователь не найден',
   },
-  'User was deleted' : {
+  'user.was.deleted' : {
     'ru': 'Пользователь был удален',
     'en': 'Пользователь был удален',
   },
-  'You can\'t update email. Create new account' : {
+  'you.cant.update.email' : {
     'ru': '«Вы не можете обновлять электронную почту. Создайте новый аккаунт',
     'en': '«Вы не можете обновлять электронную почту. Создайте новый аккаунт'
   },
-  'Password has been changed' : {
+  'password.has.been.changed' : {
     'ru': 'Пароль успешно изменен',
     'en': 'Пароль успешно изменен',
   },
-  'Password hasn\'t been changed': {
+  'password.hasnt.been.changed': {
     'ru': 'Пароль не был изменен',
     'en': 'Пароль не был изменен',
   },
-  'User has been updated and save': {
+  'user.has.been.updated.and.save': {
     'ru': 'Пользователь обновлен и сохранен',
     'en': 'Пользователь обновлен и сохранен'
   },
-  'We\'ve sent you a letter with reset link': {
+  'we.sent.you.letter.with.reset.link': {
     'ru': 'Мы отправим вам письмо с ссылкой на сброс пароля',
     'en': 'Мы отправим вам письмо с ссылкой на сброс пароля'
   },
-  'Your password was successfully changed': {
+  'your.password.was.successfully.changed': {
     'ru': 'Ваш пароль был успешно изменен',
     'en': 'Ваш пароль был успешно изменен',
   },
-  'User with this token not found': {
+  'user.with.this.token.not.found': {
     'ru': 'Пользователь с этим токеном не найден',
     'en': 'Пользователь с этим токеном не найден',
   },
-  'Email was verified. Now you can login': {
+  'email.was.verified': {
     'ru': 'Электронная почта была подтверждена. Теперь вы можете войти на сайт',
     'en': 'Электронная почта была подтверждена. Теперь вы можете войти на сайт',
   },
-  'Provide token': {
+  'provide.token': {
     'ru': 'Укажите токен',
     'en': 'Укажите токен',
   },
@@ -75,8 +75,28 @@ module.exports = {
     'ru': 'Пожалуйста подтвердите вашу почту',
     'en': 'Пожалуйста подтвердите вашу почту',
   },
-  'You don\'t have permissions': {
+  'you.dont.have.permissions': {
     'ru': 'У вас нет прав для этого действия',
     'en': 'У вас нет прав для этого действия'
+  },
+  'there.is.no.user.with.this.email': {
+    'ru': 'Пользователя с таким email не существует',
+    'en': 'Пользователя с таким email не существует'
+  },
+  'you.didnt.provide.password.field': {
+    'en': 'Вы не указали пароль или подтверждение пароля',
+    'ru': 'Вы не указали пароль или подтверждение пароля',
+  },
+  'you.didnt.provide.password.reset.token': {
+    'en': 'Вы не указали токен смены пароля',
+    'ru': 'Вы не указали токен смены пароля',
+  },
+  'password.fields.not.equal': {
+    'en': 'Пароли не равны',
+    'ru': 'Пароли не равны',
+  },
+  'you.didnt.provide.all.fields': {
+    'en': 'Вы указали не всю информацию',
+    'ru': 'Вы указали не всю информацию',
   }
 };

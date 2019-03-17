@@ -36,7 +36,7 @@ router.post('/user/verify',
     // checkValidationErrors,
     verifyUserEmailController);
 
-router.post('/user/reset/password',
+router.post('/user/password/reset',
     // isAuthorized,
     // sanitizeRequest,
     // checkValidationErrors,

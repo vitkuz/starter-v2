@@ -7,20 +7,12 @@ module.exports = async (req, res) => {
 
     const { username, email, password, password2 } = req.body;
 
-    const { user, messages } = await userService.register(username, email, password, password2);
+    const result = await userService.register({ username, email, password, password2 });
 
-
-    debug(user);
-
-    if (user) {
-
-      req.session.user = user;
-
-      res.render('user.register.success.pug', pageModel);
-    } else {
-      res.render('user.register.pug', pageModel);
-    }
+    return res.json(result.data);
   } catch (e) {
     debug(e);
+    const data = e.response.data;
+    return res.status(e.response.status).json(data);
   }
 };

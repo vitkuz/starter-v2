@@ -4,6 +4,9 @@ body {
 }
 
 .user main,
+.user.user-verify main,
+.user.user-verify main,
+.user.user-password main,
 .user.user-register main,
 .user.user-login main {
   height: 100%;

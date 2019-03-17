@@ -18,5 +18,6 @@ module.exports = {
   MONGO_URI: process.env.MONGO_URI,
   API_AUTH_KEY: process.env.API_AUTH_KEY,
   EVENT_COLLECTOR_HOST: process.env.EVENT_COLLECTOR_HOST,
-  VERIFY_USERS: process.env.VERIFY_USERS || false,
+  VERIFY_USERS: process.env.VERIFY_USERS === 'false' ? false : true,
+  JWT_SECRET: process.env.JWT_SECRET
 }

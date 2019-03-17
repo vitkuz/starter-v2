@@ -15,7 +15,7 @@ module.exports = () => {
       }
     };
 
-    res.addMessage = (type) => {
+    res.addMessage = (type, message) => {
       responseDefaultModel.messages[type].push(message);
     };
 

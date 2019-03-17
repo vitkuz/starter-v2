@@ -1,13 +1,13 @@
 import $ from 'jquery';
 
 //Login Form
-const $formSignin = $('.form-password');
+const $formSignin = $('.form-password-reset');
 $formSignin.on("submit", function (event) {
   event.preventDefault();
   console.log($(this).serializeArray());
   const data = $(this).serializeArray();
   const request = $.ajax({
-    url: "/user/password",
+    url: "/user/password/reset",
     method: "POST",
     data
   });

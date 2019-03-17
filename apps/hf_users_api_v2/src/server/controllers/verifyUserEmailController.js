@@ -1,17 +1,21 @@
 const _ = require('lodash');
 const User = require('../models/User');
 
-const { postEvent } = require('../utils/utils');
+// const { postEvent } = require('../utils/utils');
 const CONFIG = require('../setup/config');
 
-async function verifyUserEmailController(req,res) {
+async function verifyUserEmailController(req,res,next) {
   try {
     //1 Check user exists, if exist send error
-    const activationToken = req.body.activationToken;
-    // if (!activationToken) return res.status(400).json({error: req.getLabel('Provide token')});
+    const { activationToken } = req.body;
+    if (!activationToken) {
+      return res.status(400).json({error: req.getLabel('provide.token', req.lang)});
+    }
 
-    const foundUser = await User.findOne({'tokens.activationToken':activationToken});
-    if (!foundUser) return res.status(400).json({error: req.getLabel('User with this token not found')});
+    const foundUser = await User.findOne({ 'tokens.activationToken': activationToken });
+    if (!foundUser) {
+      return res.status(400).json({ error: req.getLabel('user.with.this.token.not.found', req.lang) });
+    }
 
     foundUser.set({
       activated: Date.now(),
@@ -24,9 +28,11 @@ async function verifyUserEmailController(req,res) {
     });
 
     const updatedUser = await foundUser.save();
-    if (!updatedUser) return res.status(400).json({error: req.getLabel('Error saving user')});
+    if (!updatedUser) {
+      return res.status(400).json({error: req.getLabel('error.saving.user', req.lang)});
+    }
 
-    res.addMessage('success', req.getLabel('Email was verified. Now you can login'));
+    res.addMessage('success', req.getLabel('email.was.verified', req.lang));
 
     let user;
 
@@ -36,11 +42,11 @@ async function verifyUserEmailController(req,res) {
       user = _.pick(updatedUser, ['_id', 'username', 'email', 'isActive']);
     }
 
-    postEvent({
-      event: 'howfinder_userVerifiedEmail',
-      date: Date.now(),
-      payload: user
-    });
+    // postEvent({
+    //   event: 'howfinder_userVerifiedEmail',
+    //   date: Date.now(),
+    //   payload: user
+    // });
 
     return res.status(200).json({
       user

@@ -1,17 +1,14 @@
-const debug = require('debug')('app:user.login.post.controller');
+const debug = require('debug')('app:user.password.reset.post.controller');
 
 const UserService = require('../../../services/user.service');
 
 module.exports = async (req, res, next) => {
   try {
+    const { resetPasswordToken, password, password2 } = req.body;
 
-    const { email, password } = req.body;
-
-    const result = await UserService.login({ email, password});
+    const result = await UserService.resetPassword({ resetPasswordToken, password, password2 });
 
     debug(result.data);
-
-    req.session.user = result.data.user;
 
     res.json(result.data);
 

@@ -15,17 +15,41 @@ async function registerUserController(req, res, next) {
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
+    const password2 = req.body.password2;
 
     debug(req.body);
 
+    if (!username || !email) {
+      return res.status(400).json({
+        error: req.getLabel('you.didnt.provide.all.fields', req.lang)
+      });
+    }
+
+    if (!password || !password2) {
+      return res.status(400).json({
+        error: req.getLabel('you.didnt.provide.password.field', req.lang)
+      });
+    }
+
+    if (password && password2 && password !== password2) {
+      return res.status(400).json({
+        error: req.getLabel('password.fields.not.equal', req.lang)
+      });
+    }
+
     let foundUser = await User.findOne({email});
-    if (foundUser) return res.status(400).json({
-      error: req.getLabel('user.with.this.email.already.exists', req.lang)
-    });
+    if (foundUser) {
+      return res.status(400).json({
+        error: req.getLabel('user.with.this.email.already.exists', req.lang)
+      });
+    }
+
     foundUser = await User.findOne({username});
-    if (foundUser) return res.status(400).json({
-      error: req.getLabel('user.with.this.username.already.exists', req.lang)
-    });
+    if (foundUser) {
+      return res.status(400).json({
+        error: req.getLabel('user.with.this.username.already.exists', req.lang)
+      });
+    }
 
     const hashedPassword = await hashUserPassword(password);
     const token = uuid();
@@ -42,23 +66,27 @@ async function registerUserController(req, res, next) {
     });
 
     const createdUser = await newUser.save();
-    if (!createdUser) return res.status(400).json({
-      error: req.getLabel('error.saving.user', req.lang)
-    });
+    if (!createdUser) {
+      return res.status(400).json({
+        error: req.getLabel('error.saving.user', req.lang)
+      });
+    }
+
+    res.addMessage('info', `${token}`);
 
     if (CONFIG.VERIFY_USERS) {
       res.addMessage('info', req.getLabel('please.verify.your.email'), req.lang);
 
-      try {
-        postEvent({
-          event: 'howfinder_sendEmailVerification',
-          date: new Date.now(),
-          payload: createdUser
-        });
-      } catch (e) {
-        debug(e);
-        console.log(e);
-      }
+      // try {
+      //   postEvent({
+      //     event: 'howfinder_sendEmailVerification',
+      //     date: new Date.now(),
+      //     payload: createdUser
+      //   });
+      // } catch (e) {
+      //   debug(e);
+      //   console.log(e);
+      // }
     }
 
     res.addMessage('success', req.getLabel('you.successfully.registered', req.lang));
@@ -71,11 +99,11 @@ async function registerUserController(req, res, next) {
       user = _.pick(createdUser, ['_id', 'username', 'email', 'isActive', 'activationToken'])
     }
 
-    postEvent({
-      event: 'howfinder_userRegistered',
-      date: Date.now(),
-      payload: user
-    });
+    // postEvent({
+    //   event: 'howfinder_userRegistered',
+    //   date: Date.now(),
+    //   payload: user
+    // });
 
     res.status(200).json({
       user

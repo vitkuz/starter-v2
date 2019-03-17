@@ -3,7 +3,7 @@ const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 const debug = require('debug');
 
-const { postEvent } = require('../utils/utils');
+// const { postEvent } = require('../utils/utils');
 const CONFIG = require('../setup/config');
 
 
@@ -18,30 +18,31 @@ async function loginUserController(req,res) {
       let foundUser = await User.findOne({email});
       if (!foundUser) {
         return res.status(400).json({
-          error: req.getLabel('Incorrect username or password')
+          error: req.getLabel('incorrect.username.or.password', req.lang)
         });
       }
-
 
       const passwordsIsEqual = await bcrypt.compare(password, foundUser.password);
       if (!passwordsIsEqual) {
         return res.status(400).json({
-          error: req.getLabel('Incorrect username or password')
+          error: req.getLabel('incorrect.username.or.password', req.lang)
         });
       }
 
-      if (!foundUser.status.isActive) {
-        return res.status(400).json({
-          error: req.getLabel('User is not active. Please verify your email')
-        })
-      };
+      if (CONFIG.VERIFY_USERS) {
+        if (!foundUser.status.isActive) {
+          return res.status(400).json({
+            error: req.getLabel('user.is.not.active.please.verify.your.email', req.lang)
+          })
+        };
+      }
 
       const jwtToken = foundUser.generateToken();
 
       res.header('x-auth', jwtToken);
       res.cookie('_jwt',jwtToken, { maxAge: 900000, httpOnly: true });
 
-      res.addMessage('success', req.getLabel('You have successfully login'));
+      res.addMessage('success', req.getLabel('you.have.successfully.login', req.lang));
 
       let user;
 
@@ -51,11 +52,11 @@ async function loginUserController(req,res) {
         user = _.pick(foundUser, ['_id','username','email','limits']);
       }
 
-      postEvent({
-        event: 'howfinder_userLogin',
-        date: Date.now(),
-        payload: user
-      });
+      // postEvent({
+      //   event: 'howfinder_userLogin',
+      //   date: Date.now(),
+      //   payload: user
+      // });
 
       res.status(200).json({
         user,
@@ -63,6 +64,7 @@ async function loginUserController(req,res) {
       });
 
     } catch (e) {
+      debug(e);
       next(e);
     }
 };

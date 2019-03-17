@@ -11,7 +11,7 @@ block content
         p.text-center= __('user.register.form.subtitle', lang)
     .row.justify-content-md-center.align-items-center
       .col-md-6
-        form.form-signin(method='post', action='/user/register')
+        form.form-register(method='post', action='/user/register')
           .form-group
             label.sr-only(for='inputUsername')= __('user.register.form.input.username.label', lang)
             input#inputUsername.form-control(type='text', name='username', placeholder=__('user.register.form.input.username.placeholder', lang), required=true, autofocus=true)
