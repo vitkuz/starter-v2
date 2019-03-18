@@ -66,20 +66,20 @@ router.post('/user/login/social',
     // checkValidationErrors,
     authBySocialId);
 
-router.get('/users/:id',
+router.get('/users/:userId',
     // isAuthorized,
     // sanitizeRequest,
     // checkValidationErrors,
     getUserController);
 
-router.delete('/users/:id',
+router.delete('/users/:userId',
     // isAuthorized,
     // sanitizeRequest,
     // hasPermission,
     // checkValidationErrors,
     deleteUserController);
 
-router.put('/users/:id',
+router.put('/users/:userId',
     // isAuthorized,
     // sanitizeRequest,
     // hasPermission,

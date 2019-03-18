@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const uuid = require('uuid/v1');
 // const Joi = require('joi');
 
-const {JWT_SECRET} = require('../setup/config');
+const CONFIG = require('../setup/config');
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -156,7 +156,7 @@ UserSchema.methods.generateToken = function () {
         username: this.username,
         roles: this.roles,
         limits: this.limits
-    }, JWT_SECRET);
+    }, CONFIG.JWT_SECRET);
 };
 
 // UserSchema.statics.validatePasswordChangeRequest = function (requestBody) {

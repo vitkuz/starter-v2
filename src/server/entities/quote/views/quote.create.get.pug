@@ -7,11 +7,20 @@ block content
         h1 Quote create page
         hr
         form.form-create-quote
+          .ddd
+            label quote text
+            textarea.form-control
           div.mb-3
-            label(for='quoteTitle') Quote title
-            input#quoteTitle.form-control(type='text', placeholder='Quote title')
+            label(for='quoteCategoryRef') Category Ref
+            input#quoteCategory.form-control(type='text', name='quote_category_ref', placeholder='Category Ref')
           div.mb-3
-            label(for='quoteCategory') Category
-            input#quoteCategory.form-control(type='text', placeholder='Category Ref')
+            label(for='quoteCategoryRef') Article Ref
+            input#quoteCategoryRef.form-control(type='text', name='quote_article_ref' placeholder='Article Ref')
+          div.mb-3
+            label(for='quoteAuthorRef') Author Ref
+            input#quoteAuthorRef.form-control(type='text', name='quote_author_ref' placeholder='Author Ref')
+          div.mb-3
+            label(for='quoteTagsRef') Tags Ref
+            input#quoteTagsRef.form-control(type='text', name='quote_author_ref' placeholder='Tags Ref')
           div.mb-3
             button.btn.btn-success Save

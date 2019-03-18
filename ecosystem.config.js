@@ -37,7 +37,27 @@ module.exports = {
     env_production: {
       NODE_ENV: 'production'
     }
-  }],
+  },{
+    name: 'hf_quotes_api',
+    script: './apps/hf_quotes_api/src/server/server.js',
+
+    // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
+    args: 'one two',
+    node_args: '--inspect=localhost:9226',
+    instances: 1,
+    autorestart: true,
+    watch: false,
+    exp_backoff_restart_delay: 20,
+    max_memory_restart: '1G',
+    env: {
+      NODE_ENV: 'development',
+      DEBUG: 'app,app:*'
+    },
+    env_production: {
+      NODE_ENV: 'production'
+    }
+  }
+  ],
 
   deploy: {
     production: {

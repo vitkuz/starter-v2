@@ -1,0 +1,32 @@
+header
+  | Global nav here
+  //readMenuArr,
+  //createMenuArr,
+  //updateMenuArr
+  //listsMenuArr
+  .row
+    .col-md-12
+      .menu
+        each val in readMenuArr
+          a.p-2.text-muted(href=val.href)= val.text
+  .row
+    .col-md-12
+      .menu
+        each val in createMenuArr
+          a.p-2.text-muted(href=val.href)= val.text
+  .row
+    .col-md-12
+      .menu
+        each val in updateMenuArr
+          a.p-2.text-muted(href=val.href)= val.text
+  .row
+    .col-md-12
+      .menu
+        each val in listsMenuArr
+          a.p-2.text-muted(href=val.href)= val.text
+  .row
+    .col-md-12
+      .menu
+        each val in categoriesMenu
+          a.p-2.text-muted(href=val.href)= val.text
+

@@ -2,6 +2,20 @@ const axios = require('axios');
 const debug = require('debug')('app:user.service');
 const CONFIG = require('../setup/config');
 
+function getUserById(userId) {
+  return new Promise((resolve, reject) => {
+
+    debug(`Making GET request to: ${CONFIG.HF_USERS_API}/api/v1/users/${userId}?apiKey=${CONFIG.HF_USERS_API_KEY}`);
+
+    axios.get(`${CONFIG.HF_USERS_API}/api/v1/users/${userId}?apiKey=${CONFIG.HF_USERS_API_KEY}`).then((response) => {
+      resolve(response);
+    }).catch(err => {
+      debug(err);
+      reject(err)
+    });
+  });
+}
+
 function register(user) {
   return new Promise((resolve, reject) => {
 
@@ -78,4 +92,5 @@ module.exports = {
   sendResetPasswordLink,
   resetPassword,
   verifyEmail,
+  getUserById
 };
